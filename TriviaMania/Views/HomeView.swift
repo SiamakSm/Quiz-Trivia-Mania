@@ -41,13 +41,18 @@ struct HomeView: View {
                 .padding(.horizontal, 30)
                 
                 Spacer()
-                
-                Text("MOLOUDI Mohammad - ABDOLI Hossein")
-                    .font(.headline)
-                    .foregroundColor(.white)
-                    .padding()
-                    .cornerRadius(40)
-                    .shadow(radius: 10)
+
+                NavigationLink {
+                    AboutView()
+                } label: {
+                    Text("MOLOUDI Mohammad - ABDOLI Hossein")
+                        .font(.headline)
+                        .foregroundColor(.white)
+                        .padding()
+                        .cornerRadius(40)
+                        .shadow(radius: 10)
+                }
+                .padding(.bottom, 20)
             }
             .padding(.horizontal)
             .padding(.top, 20)
