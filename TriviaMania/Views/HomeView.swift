@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import UIKit
 
 struct HomeView: View {
     var body: some View {
@@ -43,9 +44,9 @@ struct HomeView: View {
                 Spacer()
 
                 NavigationLink {
-                    AboutView()
+                    MoreView()
                 } label: {
-                    Text("MOLOUDI Mohammad - ABDOLI Hossein")
+                    Text("More")
                         .font(.headline)
                         .foregroundColor(.white)
                         .padding()
@@ -61,6 +62,18 @@ struct HomeView: View {
                     .edgesIgnoringSafeArea(.all)
             )
         }
+    }
+}
+
+struct MoreView: UIViewControllerRepresentable {
+    func makeUIViewController(context: Context) -> MainTabBarController {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let tabBarController = storyboard.instantiateViewController(withIdentifier: "MainTabBarController") as! MainTabBarController
+        return tabBarController
+    }
+
+    func updateUIViewController(_ uiViewController: MainTabBarController, context: Context) {
+        // Rien à mettre ici
     }
 }
 
