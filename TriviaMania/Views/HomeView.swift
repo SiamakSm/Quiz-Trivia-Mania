@@ -9,6 +9,7 @@ import SwiftUI
 import UIKit
 
 struct HomeView: View {
+    @State private var qCount: Int = 5  
     var body: some View {
         NavigationView {
             VStack {
@@ -26,9 +27,33 @@ struct HomeView: View {
                     .padding(.bottom, 30)
 
                 Spacer()
-
+                VStack(alignment: .center)
+                {
+                    Image("Image1")
+                        .renderingMode(.none)
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        
+                }
+                .padding(.top)
+                
+                VStack {
+                        Text("Nombre de questions : \(qCount)")
+                        .font(.title3)
+                        .fontWeight(.semibold)
+                        .foregroundColor(.gray)
+                        .padding(.bottom, 1)
+                            // Slider pour choisir le nombre de questions
+                        Slider(value: Binding(
+                            get: { Double(qCount) },
+                            set: { qCount = Int($0) }
+                        ), in: 1...30, step: 1)
+                        }
+                        .padding(40)
+                
                 NavigationLink {
-                    QuestionsViews()
+                    QuestionsViews(numQuestions: qCount)
+                    
                 } label: {
                     Text("Start Challenging...")
                         .font(.headline)
@@ -50,7 +75,7 @@ struct HomeView: View {
                         .font(.headline)
                         .foregroundColor(.white)
                         .padding()
-                        .cornerRadius(40)
+                        .cornerRadius(44)
                         .shadow(radius: 10)
                 }
                 .padding(.bottom, 20)
@@ -73,7 +98,6 @@ struct MoreView: UIViewControllerRepresentable {
     }
 
     func updateUIViewController(_ uiViewController: MainTabBarController, context: Context) {
-        // Rien à mettre ici
     }
 }
 

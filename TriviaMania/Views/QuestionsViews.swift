@@ -18,10 +18,11 @@ struct QuestionsViews: View {
     @State var submitEnable: Bool = false
     @State var isAnswerCorrect: Bool? = nil
     @State var correctAnswer: String = ""
+    var numQuestions: Int
+
 
     var body: some View {
         ZStack {
-            // Fond de l'écran avec un dégradé doux
             LinearGradient(gradient: Gradient(colors: [Color.blue.opacity(0.3), Color.purple.opacity(0.3)]), startPoint: .top, endPoint: .bottom)
                 .edgesIgnoringSafeArea(.all)
             
@@ -30,17 +31,16 @@ struct QuestionsViews: View {
                     if !randomTrivia.isEmpty {
                         VStack {
                             HStack {
-                                Text("Question: \(questionCount)/5")
+                                Text("Question: \(questionCount)/\(numQuestions)")
                                     .font(.headline)
                                     .foregroundColor(.blue)
                                 Spacer()
-                                Text("Score: \(score)/5")
+                                Text("Score: \(score)/\(numQuestions)")
                                     .font(.headline)
                                     .foregroundColor(.blue)
                             }
                             .padding()
 
-                            // Affiche la question
                             Text(randomTrivia[0].question)
                                 .font(.title2)
                                 .fontWeight(.semibold)
@@ -64,7 +64,6 @@ struct QuestionsViews: View {
                                 }
                             }
                             
-                            // Champ de saisie pour la réponse
                             TextField("Type your answer here", text: $input)
                                 .padding()
                                 .background(isAnswerCorrect == nil ? Color.white : (isAnswerCorrect! ? Color.green : Color.red))
@@ -72,15 +71,14 @@ struct QuestionsViews: View {
                                 .foregroundColor(.black)
                                 .disableAutocorrection(true)
                                 .padding(.bottom, 20)
-                                .animation(.easeInOut, value: isAnswerCorrect) // Correction : avec 'animation(_:value:)'
+                                .animation(.easeInOut, value: isAnswerCorrect)
 
-                            // Bouton pour soumettre la réponse
                             Button {
                                 withAnimation {
                                     if input.lowercased() == randomTrivia[0].correct_answer.lowercased() {
                                         score += 1
                                         isAnswerCorrect = true
-                                        correctAnswer = "" // Clear if answer is correct
+                                        correctAnswer = ""
                                     } else {
                                         isAnswerCorrect = false
                                         correctAnswer = randomTrivia[0].correct_answer
@@ -95,27 +93,26 @@ struct QuestionsViews: View {
                                     .foregroundColor(.white)
                                     .font(.headline)
                                     .scaleEffect(submitEnable ? 1.1 : 1.0)
-                                    .animation(.spring(), value: submitEnable) // Correction : avec 'animation(_:value:)'
+                                    .animation(.spring(), value: submitEnable)
+                                
                             }
                             .disabled(input.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty || submitEnable)
 
-                            // Affichage de la réponse correcte si l'utilisateur se trompe
                             if !correctAnswer.isEmpty && isAnswerCorrect == false {
                                 Text("Correct Answer: \(correctAnswer)")
                                     .foregroundColor(.green)
                                     .font(.headline)
                                     .padding(.top, 12)
-                                    .transition(.slide) // Transition pour la réponse correcte
+                                    .transition(.slide)
                             }
 
-                            // Réinitialiser et passer à la question suivante
                             HStack {
                                 Button {
                                     withAnimation {
                                         getNewQuestion()
                                         score = 0
                                         input = ""
-                                        questionCount = 0
+                                        questionCount = 1
                                         showHint = false
                                     }
                                 } label: {
@@ -125,8 +122,7 @@ struct QuestionsViews: View {
                                         Text("Restart")
                                             .foregroundColor(.black)
                                     }
-                                }
-                                .padding()
+                                }.padding()
 
                                 Button {
                                     withAnimation {
@@ -141,7 +137,7 @@ struct QuestionsViews: View {
                                     VStack {
                                         Image(systemName: "chevron.forward.circle.fill")
                                             .font(.system(size: 40))
-                                        Text(questionCount == 5 ? "Finish" : "Next")
+                                        Text(questionCount == numQuestions ? "Finish" : "Next")
                                             .foregroundColor(.black)
                                     }
                                 }
@@ -155,7 +151,7 @@ struct QuestionsViews: View {
                         .cornerRadius(15)
                         .shadow(radius: 10)
                     }
-                } else { // Affiche le score final
+                } else {
                     final
                 }
             }
@@ -217,7 +213,7 @@ struct QuestionsViews: View {
     
     func getNewQuestion() {
         Api().getData { randomTrivia in
-            if questionCount == 5 {
+            if questionCount == numQuestions {
                 finished = true
             } else {
                 questionCount += 1
@@ -228,5 +224,5 @@ struct QuestionsViews: View {
 }
 
 #Preview {
-    QuestionsViews()
+    QuestionsViews(numQuestions: 7)
 }

@@ -4,57 +4,69 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23506"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--222-->
+        <!--About Us-->
         <scene sceneID="EHX-cj-gE8">
             <objects>
                 <viewController id="KEt-la-Z8S" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5T6-xJ-cg1">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="30" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hcd-JF-oRt">
+                                <rect key="frame" x="16" y="34" width="361" height="634"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <string key="text">About Us
+ 
+We are two passionate programmers, MOLOUDI Mohammad and ABDOLI Hossein, who developed TriviaMania as part of our mobile programming journey. Our goal is to create a fun and engaging trivia experience that challenges players while keeping it simple and enjoyable. Stay tuned for exciting updates!
+</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="0la-FD-gBP"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" red="0.75925899372467653" green="0.87354859072891788" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="222" id="fZq-U9-dv6"/>
+                    <tabBarItem key="tabBarItem" title="About Us" image="exclamationmark.bubble" catalog="system" id="fZq-U9-dv6"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uTx-cK-yYt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1182" y="414"/>
+            <point key="canvasLocation" x="1418" y="-363"/>
         </scene>
-        <!--444-->
-        <scene sceneID="UHq-tY-759">
+        <!--About App-->
+        <scene sceneID="4h2-zo-bJa">
             <objects>
-                <viewController id="H3z-0A-vp9" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="STk-GU-RTV">
+                <viewController id="qRX-j2-Y9V" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="aY9-Qr-oRR">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="Nvp-0p-l66"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="28" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pqc-xy-zTS">
+                                <rect key="frame" x="50" y="78" width="294" height="557"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <string key="text">Welcome to TriviaMania! 
+
+TriviaMania is a small quiz game we developed as part of a mobile programming project. Right now, the game features only five questions to test your knowledge, but this is just the beginning! 
+
+In future updates, we plan to add difficulty levels, question categories, and many more features to make the experience even more fun and engaging.
+
+We hope you enjoy TriviaMania, and we’re excited to keep improving it!</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="aUq-Pl-MEo"/>
+                        <color key="backgroundColor" red="0.76185435059999995" green="0.87542903419999996" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="444" id="sAL-aa-WhG"/>
+                    <tabBarItem key="tabBarItem" title="About App" image="exclamationmark.bubble.fill" catalog="system" id="EPD-fV-PhU"/>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="wW6-jq-j5H" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vVF-AJ-r9t" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2415" y="413"/>
-        </scene>
-        <!--1111-->
-        <scene sceneID="Mw9-Uw-y6i">
-            <objects>
-                <viewController id="aeZ-te-YTw" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="v7W-0X-QIj">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="5Ae-fb-taM"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="1111" id="JIZ-AT-JK5"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="1Hr-1d-MqR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1183" y="-448"/>
+            <point key="canvasLocation" x="1418" y="319"/>
         </scene>
         <!--Main Tab Bar Controller-->
         <scene sceneID="qOs-Vn-gQ1">
@@ -66,36 +78,17 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
-                        <segue destination="aeZ-te-YTw" kind="relationship" relationship="viewControllers" id="HZB-XP-0ij"/>
                         <segue destination="KEt-la-Z8S" kind="relationship" relationship="viewControllers" id="VYT-CZ-jDq"/>
-                        <segue destination="Cm3-TD-uft" kind="relationship" relationship="viewControllers" id="zjr-Zh-sF4"/>
-                        <segue destination="H3z-0A-vp9" kind="relationship" relationship="viewControllers" id="7IE-Su-EgM"/>
+                        <segue destination="qRX-j2-Y9V" kind="relationship" relationship="viewControllers" id="sdE-fH-eKg"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CzJ-mu-vYh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-44" y="-168"/>
-        </scene>
-        <!--3333-->
-        <scene sceneID="mPT-GN-hZd">
-            <objects>
-                <viewController id="Cm3-TD-uft" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="7Hi-5X-6nH">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="62R-fs-PoW"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="3333" id="kXU-qY-5Dv"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="BKE-9c-8Lz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2413" y="-449"/>
+            <point key="canvasLocation" x="-741" y="-6"/>
         </scene>
     </scenes>
     <resources>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
+        <image name="exclamationmark.bubble" catalog="system" width="128" height="110"/>
+        <image name="exclamationmark.bubble.fill" catalog="system" width="128" height="110"/>
     </resources>
 </document>
