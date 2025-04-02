@@ -56,7 +56,7 @@ struct HomeView: View {
                         .padding(.bottom, 5)
                 
                 VStack {
-                    Text("Choose Difficulty")
+                    Text("Level of Difficulty")
                         .font(.title3)
                         .fontWeight(.semibold)
                         .foregroundColor(.gray)
