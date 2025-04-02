@@ -12,7 +12,6 @@ struct DataModel: Codable {
     var correct_answer: String
     var incorrect_answers: [String]
     
-    // Pour mélanger les réponses
     var allAnswers: [String] {
         return (incorrect_answers + [correct_answer]).shuffled()
     }

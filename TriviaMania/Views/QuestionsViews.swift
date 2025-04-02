@@ -19,7 +19,7 @@ struct QuestionsViews: View {
     @State var isAnswerCorrect: Bool? = nil
     @State var correctAnswer: String = ""
     var numQuestions: Int
-
+    var diffQuestions: String
 
     var body: some View {
         ZStack {
@@ -158,7 +158,8 @@ struct QuestionsViews: View {
         }
         .onAppear {
             withAnimation {
-                Api().getData { randomTrivia in
+                Api.getData(difficulty: diffQuestions) { randomTrivia in
+                    print("Difficulté envoyée: \(diffQuestions)")
                     self.randomTrivia = randomTrivia
                 }
             }
@@ -212,7 +213,7 @@ struct QuestionsViews: View {
     }
     
     func getNewQuestion() {
-        Api().getData { randomTrivia in
+        Api.getData(difficulty: diffQuestions) { randomTrivia in
             if questionCount == numQuestions {
                 finished = true
             } else {
@@ -224,5 +225,5 @@ struct QuestionsViews: View {
 }
 
 #Preview {
-    QuestionsViews(numQuestions: 7)
+    QuestionsViews(numQuestions: 7, diffQuestions: "easy")
 }

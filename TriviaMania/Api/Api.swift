@@ -8,9 +8,11 @@
 import SwiftUI
 
 class Api {
-    func getData(completion: @escaping ([DataModel]) -> ()) {
-        guard let url = URL(string: "https://opentdb.com/api.php?amount=1&type=multiple") else { return }
-        
+    static let baseURL = "https://opentdb.com/api.php"
+    
+    static func getData(difficulty: String, completion: @escaping ([DataModel]) -> ()) {
+        guard let url = URL(string: "\(baseURL)?amount=1&type=multiple&difficulty=\(difficulty)") else { return }
+        //print("URL appelée: \(url)")
         URLSession.shared.dataTask(with: url) { data, _, error in
             if let error = error {
                 print(" Error  \(error.localizedDescription)")

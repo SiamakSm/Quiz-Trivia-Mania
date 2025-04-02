@@ -9,7 +9,10 @@ import SwiftUI
 import UIKit
 
 struct HomeView: View {
-    @State private var qCount: Int = 5  
+    @State private var difficulty: String = "easy"
+    let difficulties = ["easy", "medium", "hard"]
+    @State private var qCount: Int = 5
+    
     var body: some View {
         NavigationView {
             VStack {
@@ -24,7 +27,7 @@ struct HomeView: View {
                     .font(.title)
                     .fontWeight(.semibold)
                     .foregroundColor(.blue)
-                    .padding(.bottom, 30)
+                    .padding(.bottom, 10)
 
                 Spacer()
                 VStack(alignment: .center)
@@ -33,26 +36,43 @@ struct HomeView: View {
                         .renderingMode(.none)
                         .resizable()
                         .aspectRatio(contentMode: .fit)
-                        
+                        .cornerRadius(20)
                 }
-                .padding(.top)
+                .padding(.bottom, 30)
                 
                 VStack {
-                        Text("Nombre de questions : \(qCount)")
+                        Text("Number of Questions : \(qCount)")
                         .font(.title3)
                         .fontWeight(.semibold)
                         .foregroundColor(.gray)
-                        .padding(.bottom, 1)
+                        .padding(.bottom,1)
                             // Slider pour choisir le nombre de questions
                         Slider(value: Binding(
                             get: { Double(qCount) },
                             set: { qCount = Int($0) }
                         ), in: 1...30, step: 1)
                         }
-                        .padding(40)
+                        .padding(.horizontal, 30)
+                        .padding(.bottom, 5)
                 
+                VStack {
+                    Text("Choose Difficulty")
+                        .font(.title3)
+                        .fontWeight(.semibold)
+                        .foregroundColor(.gray)
+                        .padding(.bottom,1)
+                    
+                    // Picker pour choisir la difficulté
+                    Picker("Difficulty", selection: $difficulty) {
+                        ForEach(difficulties, id: \.self) { level in
+                            Text(level.capitalized) // Affiche en majuscule
+                        }
+                    }.padding(.bottom, 30)
+                    .pickerStyle(SegmentedPickerStyle())
+                }.padding(.horizontal, 30)
+                    
                 NavigationLink {
-                    QuestionsViews(numQuestions: qCount)
+                    QuestionsViews(numQuestions: qCount , diffQuestions: difficulty)
                     
                 } label: {
                     Text("Start Challenging...")
@@ -64,24 +84,18 @@ struct HomeView: View {
                         .cornerRadius(25)
                         .shadow(radius: 10)
                 }
-                .padding(.horizontal, 30)
+                .padding(.horizontal,70)
                 
-                Spacer()
-
                 NavigationLink {
                     MoreView()
                 } label: {
                     Text("More")
                         .font(.headline)
-                        .foregroundColor(.white)
-                        .padding()
-                        .cornerRadius(44)
-                        .shadow(radius: 10)
+                        .foregroundColor(.black)
+                        .padding(.top,30)
                 }
-                .padding(.bottom, 20)
             }
             .padding(.horizontal)
-            .padding(.top, 20)
             .background(
                 LinearGradient(gradient: Gradient(colors: [Color.blue.opacity(0.3), Color.purple.opacity(0.3)]), startPoint: .top, endPoint: .bottom)
                     .edgesIgnoringSafeArea(.all)
